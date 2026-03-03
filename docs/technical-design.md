@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 技术方案设计 - 订单转换助手
 
 **版本:** 1.0  
@@ -65,10 +66,42 @@ order_link/
 │   │   ├── pages/            # 页面
 │   │   ├── stores/           # 状态管理
 │   │   ├── services/         # API 调用
+=======
+# Order Link - Technical Design
+
+## 1. Architecture Overview
+
+Monorepo structure with clear separation between frontend and backend.
+
+## 2. Tech Stack
+
+### Frontend
+- React 18 + TypeScript
+- Vite for build tooling
+- Zustand for state management
+
+### Backend
+- Node.js + TypeScript
+- Express for REST API
+- Better-SQLite3 for database
+- bcryptjs + jsonwebtoken for auth
+
+## 3. Directory Structure
+
+```
+order_link/
+├── frontend/                 # Frontend code
+│   ├── src/
+│   │   ├── components/       # UI components
+│   │   ├── pages/            # Pages
+│   │   ├── stores/           # State management
+│   │   ├── services/         # API calls
+>>>>>>> 8949711 (Restructure repository to match technical design)
 │   │   └── App.tsx
 │   ├── package.json
 │   └── vite.config.ts
 │
+<<<<<<< HEAD
 ├── backend/                  # 后端代码
 │   ├── src/
 │   │   ├── api/              # REST API
@@ -76,10 +109,20 @@ order_link/
 │   │   ├── mapper/           # 映射引擎
 │   │   ├── auth/             # 认证/加密
 │   │   ├── db/               # 数据库
+=======
+├── backend/                  # Backend code
+│   ├── src/
+│   │   ├── api/              # REST API
+│   │   ├── crawler/          # Crawler module
+│   │   ├── mapper/           # Mapping engine
+│   │   ├── auth/             # Auth/encryption
+│   │   ├── db/               # Database
+>>>>>>> 8949711 (Restructure repository to match technical design)
 │   │   └── index.ts
 │   ├── package.json
 │   └── tsconfig.json
 │
+<<<<<<< HEAD
 ├── docs/                     # 文档
 └── package.json              # Monorepo 根配置
 ```
@@ -311,3 +354,26 @@ enum MappingError {
 | 版本 | 日期 | 变更内容 | 负责人 |
 |------|------|----------|--------|
 | 1.0 | 2026-03-03 | 初始版本 | Backend + Frontend |
+=======
+├── docs/                     # Documentation
+│   ├── requirements.md
+│   └── technical-design.md
+│
+├── shared/                   # Shared code
+│   └── types/
+│
+└── package.json              # Monorepo root config
+```
+
+## 4. API Design
+
+### Endpoints
+- `GET /api/orders` - List orders
+- `GET /api/orders/:id` - Get order by ID
+- `POST /api/orders` - Create order
+- `PUT /api/orders/:id` - Update order
+
+## 5. Database Schema
+
+See `backend/src/db/schema.ts` for table definitions.
+>>>>>>> 8949711 (Restructure repository to match technical design)

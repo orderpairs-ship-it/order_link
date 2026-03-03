@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 需求文档 - 订单转换助手
 
 **版本:** 1.0  
@@ -148,3 +149,26 @@
 | 版本 | 日期 | 变更内容 | 负责人 |
 |------|------|----------|--------|
 | 1.0 | 2026-03-03 | 初始版本 | Roadmap |
+=======
+# Order Link - Requirements
+
+## Overview
+Order Link is a platform integration tool that maps orders between different e-commerce platforms and shipping systems.
+
+## M1 Phase Goals
+- [ ] Basic order fetching from source platforms
+- [ ] Order mapping engine
+- [ ] REST API for order management
+- [ ] Simple frontend UI
+
+## Functional Requirements
+1. **Order Fetching**: Retrieve orders from connected platforms
+2. **Order Mapping**: Transform order data to unified schema
+3. **API Access**: RESTful endpoints for CRUD operations
+4. **Authentication**: Secure access control
+
+## Non-Functional Requirements
+- TypeScript for type safety
+- Modular architecture (frontend/backend separation)
+- CI/CD pipeline for automated testing and deployment
+>>>>>>> 8949711 (Restructure repository to match technical design)
