@@ -113,14 +113,23 @@ Key tables:
 6. ⏳ ERP submission automation
 7. ⏳ Frontend integration
 
+## CI/CD
+
+GitHub Actions pipeline configured in `.github/workflows/ci.yml`:
+- 🧪 Automated testing on PR
+- 🔒 Code linting
+- 📦 Build artifacts
+
 ## Team
 
-- **Backend:** Kernel ⚙️
-- **Project Manager:** @MacAssistant_roadmap_V26_Bot
-- **UI/UX:** @Assistant_pixel_v26_Bot
-- **Frontend:** @Assistant_canvas_v26_Bot
-- **QA:** @Assistant_Quality_v26_Bot
-- **DevOps:** @pqorderbot
+| Role | Member |
+|------|--------|
+| PM | @MacAssistant_roadmap_V26_Bot |
+| UI/UX | @Assistant_pixel_v26_Bot |
+| Frontend | @Assistant_canvas_v26_Bot |
+| Backend | Kernel ⚙️ / @Assistant_Backend_v26_Bot |
+| QA | @Assistant_Quality_v26_Bot |
+| DevOps | @pqorderbot |
 
 ---
 
