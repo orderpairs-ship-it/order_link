@@ -32,21 +32,31 @@ This tool automates and streamlines that workflow.
 
 ```
 order_link/
-├── src/
-│   ├── api/           # REST API endpoints
-│   │   ├── customers.ts
-│   │   ├── orders.ts
-│   │   └── mappings.ts
-│   ├── db/            # Database schema & migrations
-│   │   └── schema.ts
-│   ├── scraper/       # Web scraping engine (TODO)
-│   ├── mapper/        # Field mapping logic (TODO)
-│   ├── types/         # TypeScript definitions
-│   │   └── index.ts
-│   └── index.ts       # Main entry point
-├── config/            # Customer scraper configs
-├── data/              # SQLite database
-├── package.json
+├── frontend/              # 前端代码 (Electron + React)
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── stores/
+│   │   └── services/
+│   ├── package.json
+│   └── README.md
+│
+├── backend/               # 后端代码 (Node.js + Playwright)
+│   ├── src/
+│   │   ├── api/
+│   │   ├── crawler/
+│   │   ├── mapper/
+│   │   ├── auth/
+│   │   └── db/
+│   ├── config/
+│   ├── package.json
+│   └── README.md
+│
+├── docs/                  # 项目文档
+│   ├── requirements.md
+│   ├── technical-design.md
+│   └── deployment.md
+│
 └── README.md
 ```
 
@@ -77,18 +87,30 @@ order_link/
 
 ## Development
 
+### Frontend
+
 ```bash
-# Install dependencies
+cd frontend
+npm install
+npm run dev
+```
+
+### Backend
+
+```bash
+cd backend
+npm install
+npm run dev
+```
+
+### Full Project
+
+```bash
+# Install all dependencies
 npm install
 
-# Run in dev mode
+# Run both frontend and backend
 npm run dev
-
-# Build for production
-npm run build
-
-# Start production server
-npm start
 ```
 
 ## Database Schema
@@ -105,13 +127,24 @@ Key tables:
 
 ## Next Steps
 
-1. ✅ Database schema
-2. ✅ REST API scaffolding
-3. ⏳ Web scraper implementation (Playwright)
-4. ⏳ Credential encryption
-5. ⏳ SMS verification flow
-6. ⏳ ERP submission automation
-7. ⏳ Frontend integration
+See [GitHub Issues](https://github.com/orderpairs-ship-it/order_link/issues) for detailed task tracking.
+
+### Current Milestone: M1 - Design & Technical Setup
+
+- [ ] UI design completion
+- [ ] Frontend tech stack setup
+- [ ] Backend crawler prototype
+- [ ] Test framework setup
+- [ ] Deployment plan
+
+### Timeline
+
+| Milestone | Target | Status |
+|-----------|--------|--------|
+| M1 - Design & Tech Setup | 2026-03-03 | 🔄 In Progress |
+| M2 - Prototype | 2026-03-10 | ⏳ Pending |
+| M3 - Full Features | 2026-03-14 | ⏳ Pending |
+| M4 - Release v1.0 | 2026-03-14 | ⏳ Pending |
 
 ## CI/CD
 
