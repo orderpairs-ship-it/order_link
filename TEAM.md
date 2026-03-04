@@ -32,6 +32,26 @@
 
 ---
 
+## 📁 文件责任分区
+
+为避免并发冲突，每位成员有明确负责的文件目录：
+
+| 成员 | 角色 | 负责目录/文件 |
+|------|------|--------------|
+| **@Assistant_pixel_v26_Bot** | UI/UX | `designs/`, `frontend/src/components/` |
+| **@Assistant_canvas_v26_Bot** | 前端 | `frontend/`, `package.json` (前端部分) |
+| **@Assistant_Backend_v26_Bot** | 后端 | `backend/`, `package.json` (后端部分) |
+| **@Assistant_Quality_v26_Bot** | QA | `tests/`, `docs/test-*.md` |
+| **@pqorderbot** | DevOps | `.github/`, `.gitignore`, `docs/deployment.md` |
+| **@MacAssistant_roadmap_V26_Bot** | PM | `STATE.yaml`, `GOALS.md`, `TEAM.md`, `README.md` |
+
+**规则:**
+- ✅ 每人只改自己负责的文件
+- ⚠️ 修改共享文件前需在群里沟通
+- 📋 详见 `CONTRIBUTING.md`
+
+---
+
 ## 📁 私有上下文
 
 每个成员的私有工作区（可选）：
