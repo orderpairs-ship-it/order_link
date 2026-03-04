@@ -1,0 +1,157 @@
+# STATE.yaml - Order Link 项目协调文件
+# 参考：https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/autonomous-project-management.md
+
+project: order_link
+description: 外部订单转内部订单自动化工具
+updated: 2026-03-04T14:30:00Z
+repo: https://github.com/orderpairs-ship-it/order_link.git
+
+# ============ 里程碑 ============
+milestones:
+  - id: M1
+    title: 设计 & 技术方案
+    status: done
+    completed: 2026-03-03
+    
+  - id: M2
+    title: 原型开发
+    status: in_progress
+    due: 2026-03-10
+    
+  - id: M3
+    title: 功能完整
+    status: pending
+    due: 2026-03-14
+    
+  - id: M4
+    title: 测试发布 v1.0
+    status: pending
+    due: 2026-03-14
+
+# ============ 当前任务 ============
+tasks:
+  # M2 阶段任务
+  - id: T06
+    title: 前端骨架搭建
+    description: 基于线框图搭建 Electron + React 框架
+    status: in_progress
+    owner: canvas
+    priority: P0
+    milestone: M2
+    started: 2026-03-04T10:00:00Z
+    due: 2026-03-10T18:00:00Z
+    progress: 30%
+    notes: "基于 M1 线框图搭建基础框架"
+    dependencies: []
+    
+  - id: T07
+    title: 爬虫核心功能
+    description: Playwright 爬虫 + 登录流程（密码+SMS）
+    status: in_progress
+    owner: backend
+    priority: P0
+    milestone: M2
+    started: 2026-03-04T09:00:00Z
+    due: 2026-03-10T18:00:00Z
+    progress: 90%
+    notes: "框架完成，等待真实系统联调"
+    dependencies: []
+    
+  - id: T08
+    title: 映射引擎原型
+    description: 字段映射 + SKU 映射逻辑
+    status: pending
+    owner: backend
+    priority: P0
+    milestone: M2
+    due: 2026-03-10T18:00:00Z
+    progress: 0%
+    notes: "等待 T07 完成后开始"
+    dependencies: [T07]
+    
+  - id: T09
+    title: 高保真设计 + 设计系统
+    description: 主界面视觉稿 + CSS 变量 + 组件规范
+    status: in_progress
+    owner: pixel
+    priority: P0
+    milestone: M2
+    started: 2026-03-04T09:00:00Z
+    due: 2026-03-07T18:00:00Z
+    progress: 20%
+    notes: "主界面视觉稿进行中"
+    dependencies: []
+    
+  - id: T10
+    title: 测试用例执行
+    description: 基于测试计划执行测试
+    status: pending
+    owner: quality
+    priority: P1
+    milestone: M3
+    due: 2026-03-14T18:00:00Z
+    progress: 0%
+    notes: "等待 M2 原型完成后开始"
+    dependencies: [T06, T07, T08]
+    
+  - id: T11
+    title: 打包发布
+    description: electron-builder 打包 + 分发
+    status: pending
+    owner: devops
+    priority: P1
+    milestone: M4
+    due: 2026-03-14T18:00:00Z
+    progress: 0%
+    notes: "等待功能完整后打包"
+    dependencies: [T06, T07, T08, T10]
+
+# ============ 下一步行动 ============
+next_actions:
+  - "pixel: 今晚交付主界面高保真视觉稿 (T09)"
+  - "canvas: 请尽快同步前端骨架进度 (T06)"
+  - "backend: 完成爬虫联调后开始映射引擎 (T07→T08)"
+
+# ============ 阻塞项 ============
+blocked:
+  # 当前无阻塞
+
+# ============ 已完成任务 ============
+completed:
+  - id: T01
+    title: UI 线框图
+    owner: pixel
+    completed: 2026-03-03T17:54:00Z
+    output: "designs/M1-Wireframes.md"
+    
+  - id: T02
+    title: 前端技术选型
+    owner: canvas
+    completed: 2026-03-03T17:25:00Z
+    output: "docs/technical-design.md"
+    
+  - id: T03
+    title: 爬虫方案
+    owner: backend
+    completed: 2026-03-03T17:45:00Z
+    output: "docs/technical-design.md"
+    
+  - id: T04
+    title: 测试用例框架
+    owner: quality
+    completed: 2026-03-03T18:05:00Z
+    output: "T04_测试计划_订单转换助手.md"
+    
+  - id: T05
+    title: 打包部署方案
+    owner: devops
+    completed: 2026-03-03T17:07:00Z
+    output: "docs/deployment.md"
+
+# ============ 文档索引 ============
+docs:
+  requirements: "docs/requirements.md"
+  technical_design: "docs/technical-design.md"
+  ui_wireframes: "designs/M1-Wireframes.md"
+  test_plan: "T04_测试计划_订单转换助手.md"
+  project_tracking: "PROJECT_TRACKING.md"
