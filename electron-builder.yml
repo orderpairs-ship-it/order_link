@@ -1,0 +1,113 @@
+# Electron Builder Configuration
+# See: https://www.electron.build/configuration/configuration
+
+appId: com.orderpairs.orderlink
+productName: Order Link
+copyright: Copyright © 2026 OrderPairs
+
+# Build resources directory
+buildResources: build
+
+# Files to include in the app
+files:
+  - from: dist
+    to: app
+  - filter:
+      - '**/*'
+      - '!**/*.map'
+      - '!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}'
+      - '!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}'
+      - '!**/node_modules/.bin'
+      - '!**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}'
+      - '!.editorconfig'
+      - '!**/._*'
+      - '!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,.gitignore,.gitattributes}'
+      - '!**/{__pycache__,thumbs.db,.flowconfig,.yarn-metadata.json,.idea,appveyor.yml,.travis.yml,circle.yml}'
+      - '!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}'
+
+# Output directory
+directories:
+  output: release
+
+# Windows configuration
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+        - arm64
+  artifactName: ${productName}-Setup-${version}.${ext}
+  icon: build/icon.ico
+
+# NSIS installer configuration
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: Order Link
+  runAfterFinish: true
+  installerHeaderIcon: build/icon.ico
+  installerIcon: build/icon.ico
+  uninstallerIcon: build/icon.ico
+
+# macOS configuration
+mac:
+  target:
+    - dmg
+    - zip
+  artifactName: ${productName}-${version}.${ext}
+  category: public.app-category.business
+  icon: build/icon.icns
+  hardenedRuntime: true
+  gatekeeperAssess: false
+  entitlements: build/entitlements.mac.plist
+  entitlementsInherit: build/entitlements.mac.plist
+
+# Linux configuration
+linux:
+  target:
+    - AppImage
+    - deb
+  artifactName: ${productName}-${version}.${ext}
+  category: Office
+  icon: build/icons
+
+# Debian package configuration
+deb:
+  packageCategory: utils
+  depends:
+    - libnss3
+    - libnspr4
+    - libatk1.0-0
+    - libatk-bridge2.0-0
+    - libcups2
+    - libdrm2
+    - libxkbcommon0
+    - libxcomposite1
+    - libxdamage1
+    - libxfixes3
+    - libxrandr2
+    - libgbm1
+    - libasound2
+
+# AppImage configuration
+appImage:
+  artifactName: ${productName}-${version}.${ext}
+
+# Auto-update configuration
+publish:
+  provider: github
+  owner: orderpairs-ship-it
+  repo: order_link
+  private: true
+  releaseType: release
+
+# Compression
+compression: normal
+
+# Detect update channel
+detectUpdateChannel: true
+
+# Generate updates files
+generateUpdatesFilesForAllChannels: true

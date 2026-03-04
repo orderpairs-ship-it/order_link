@@ -3,15 +3,78 @@
   "version": "0.1.0",
   "description": "External to internal order conversion tool for sales teams",
   "private": true,
+  "main": "electron/dist/main.js",
   "workspaces": [
     "frontend",
-    "backend"
+    "backend",
+    "electron"
   ],
   "scripts": {
-    "dev": "npm run dev --workspaces",
-    "build": "npm run build --workspaces",
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\" \"npm run dev:electron\"",
     "dev:frontend": "npm run dev --workspace=frontend",
     "dev:backend": "npm run dev --workspace=backend",
-    "db:migrate": "npm run db:migrate --workspace=backend"
+    "dev:electron": "npm run dev --workspace=electron",
+    "build": "npm run build:all",
+    "build:all": "npm run build:frontend && npm run build:backend && npm run build:electron",
+    "build:frontend": "npm run build --workspace=frontend",
+    "build:backend": "npm run build --workspace=backend",
+    "build:electron": "npm run build --workspace=electron",
+    "db:migrate": "npm run db:migrate --workspace=backend",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "dist:win": "electron-builder --win",
+    "dist:mac": "electron-builder --mac",
+    "dist:linux": "electron-builder --linux",
+    "release": "npm run build:all && npm run dist",
+    "clean": "npm run clean:all",
+    "clean:all": "npm run clean:frontend && npm run clean:backend && npm run clean:electron && rm -rf release",
+    "clean:frontend": "rm -rf frontend/dist",
+    "clean:backend": "rm -rf backend/dist",
+    "clean:electron": "rm -rf electron/dist"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1",
+    "electron-updater": "^6.1.7"
+  },
+  "build": {
+    "appId": "com.orderpairs.orderlink",
+    "productName": "Order Link",
+    "copyright": "Copyright © 2026 OrderPairs",
+    "buildResources": "build",
+    "files": [
+      {
+        "from": "dist",
+        "to": "app"
+      }
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "win": {
+      "target": ["nsis"],
+      "artifactName": "${productName}-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "mac": {
+      "target": ["dmg", "zip"],
+      "category": "public.app-category.business"
+    },
+    "linux": {
+      "target": ["AppImage", "deb"],
+      "category": "Office"
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "orderpairs-ship-it",
+      "repo": "order_link",
+      "private": true
+    }
   }
 }

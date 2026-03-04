@@ -4,3 +4,25 @@ data/*.db
 .env
 *.log
 .DS_Store
+
+# Build outputs
+release/
+build/*.app
+build/*.exe
+build/*.dmg
+build/*.AppImage
+build/*.deb
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Testing
+coverage/
+*.coverage
+
+# Temporary
+*.tmp
+*.temp
